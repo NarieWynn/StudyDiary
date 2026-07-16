@@ -1,7 +1,8 @@
- # **CMake Architecture:**
+ ## CMake Architecture:
 ---
 > [!ABSTRACT] Definition
-> **CMakeLists.txt** is a meta-build system for c/c++ to communicate with other libraries (Qt6, OpenCV).
+> **CMakeLists.txt** is a meta-build system for c/c++ to communicate with other libraries (for example: Qt6, OpenCV).
+^cmake-def
 ## Core functions:
 * **Dependency Management:** Automatic finding driver/ libraries in system.
 * **Meta-Build:** CMake can not compile code. 
