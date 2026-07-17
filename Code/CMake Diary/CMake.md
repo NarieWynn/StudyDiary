@@ -61,7 +61,7 @@ target_link_libraries(polaris_launcher PRIVATE
 	*  *#note:* **Turn on required language version if not satisfy version project can run**
 	*  *Explanation:* Enforces the C++ standard requirement. If the compiler does not support C++17, CMake will stop the build process immediately instead of failing later.
 
-* ****<font color="cyan">5. find_package(Qt6 COMPONENTS Core Gui Qml Quick REQUIRED)</font>**
+* ****<font color="cyan">5. find_package(Qt6 COMPONENTS Core Gui Qml Quick REQUIRED)</font>** ^9abf85
 	*  *#note:* **Find package require of library Qt6 on system**
 	*  *Explanation:* Instructs CMake to search the system (your Arch Linux setup) to ensure all required Qt6 modules are installed.
 
