@@ -37,3 +37,34 @@ std::io::stdin
     - `&guess`: You give the address, but the computer **CANNOT** change the value inside that address (Read-only).
         
     - `&mut guess`: You give the address and grant permission to **CHANGE** the value inside it (Read and Write).
+## 4. Overflow handle syntax
+
+^3d04ef
+
+1. `wrapping_add`
+```rust
+let x: u8 = 255;
+let res = x.wrapping_add(1); // res = 0
+```
+when the value store in variable is overflow (larger or smaller than max/min value). Whether compile in debug mode or with --release flag, this command force the CPU to wrap around and return to 0
+2. `checked_add`
+```rust
+let x: u8 = 255;
+let res = x.checked_add(1); // res = None
+```
+Return the `None` value if there is overflow
+3. `overflowing_add`
+```rust
+let x: u8 = 255;
+let (res, is_overflowed) = x.overflowing_add(1); // res = 0, is_overflowed = true
+```
+Return the value after turning bit 0, and a boolean flag to indicating whether there was overflow
+4. `saturaring_add`
+```rust
+let x: u8 = 255;
+let res = x.saturating_add(1); // res = 255
+```
+Return the maximum or minimum values 
+## 5. Declared Data Type
+[[C3. Common Programming Concepts#^395b65| See detail]]
+
