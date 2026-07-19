@@ -1,3 +1,4 @@
+Rust code uses `snake case` as the conventional style for function and variable names, in which all letters are lowercase and underscores separate words 
 ## 1. Mutable Dynamic String
 
 ^a71ab6
@@ -67,4 +68,49 @@ let res = x.saturating_add(1); // res = 255
 Return the maximum or minimum values 
 ## 5. Declared Data Type
 [[C3. Common Programming Concepts#^395b65| See detail]]
+## 6. `trim()`
+```rust
+
+let mut index = String::new();
+
+io::stdin()
+    .read_line(&mut index)
+    .expect("Failed to read line");
+
+let index: usize = index
+    .trim()
+    .parse()
+    .expect("Index entered was not a number");
+```
+`index.trim()` remove space, enter in string (/n)
+**Note:** `trim()` only remove space at the head and the end of a string not in the middle "  1   2   " output will be `"1  2"`
+## 7. `parse()`
+```rust
+let mut index = String::new();
+
+io::stdin()
+    .read_line(&mut index)
+    .expect("Failed to read line");
+
+let index: usize = index
+    .trim()
+    .parse()
+    .expect("Index entered was not a number");
+```
+`index.parse()` tranform string "3" into a number 3
+## 8. if Expression
+```rust
+fn main() {
+    let number = 3;
+
+    if number < 5 {
+        println!("condition was true");
+    } else {
+        println!("condition was false");
+    }
+}
+```
+^9e6c07
+**note:** the condition in this code **must** be a `bool`. If the condition isn't bool, we'll get an error [[C3. Common Programming Concepts#if Expressions|see error here]]
+
 
