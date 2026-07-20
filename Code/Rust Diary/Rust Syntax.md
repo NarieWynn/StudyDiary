@@ -1,6 +1,8 @@
 Rust code uses `snake case` as the conventional style for function and variable names, in which all letters are lowercase and underscores separate words 
-## 1. Mutable Dynamic String
 
+===========================================================
+## 1. Mutable Dynamic String
+===========================================================
 ^a71ab6
 
 ```rust
@@ -10,8 +12,10 @@ let mut string = String::new();
 - This function is in the **prelude** (automatically imported).
 - `new()` is an **associated function** of the `String` type (like `static method` in Java/C++), called via `::` syntax.
 - Note: An associated function is implemented on a type itself (`String`, `Vec`), not on a specific instance.
-# 2. Receiving Input
 
+===========================================================
+# 2. Receiving Input
+===========================================================
 ^fc4933
 
 ```rust
@@ -27,8 +31,10 @@ io::stdin() // call the function stdin from io module
 std::io::stdin
 ```
 - **Mechanism:** `read_line` takes whatever the user types and **appends** into the string without overwriting. (Imagine a bucket: new input is added to the bottom, it doesn't empty the bucket first).
-## 3. References
 
+===========================================================
+## 3. References
+===========================================================
 ^f04d47
 
 - **Concept:** A reference (`&`) gives a function the **address** of the data. Therefore, the computer doesn't need to copy the entire data into memory multiple times (saves RAM and improves performance).
@@ -38,8 +44,10 @@ std::io::stdin
     - `&guess`: You give the address, but the computer **CANNOT** change the value inside that address (Read-only).
         
     - `&mut guess`: You give the address and grant permission to **CHANGE** the value inside it (Read and Write).
-## 4. Overflow handle syntax
 
+===========================================================
+## 4. Overflow handle syntax
+===========================================================
 ^3d04ef
 
 1. `wrapping_add`
@@ -66,9 +74,15 @@ let x: u8 = 255;
 let res = x.saturating_add(1); // res = 255
 ```
 Return the maximum or minimum values 
+
+===========================================================
 ## 5. Declared Data Type
 [[C3. Common Programming Concepts#^395b65| See detail]]
+
+===========================================================
 ## 6. `trim()`
+===========================================================
+
 ```rust
 
 let mut index = String::new();
@@ -84,7 +98,10 @@ let index: usize = index
 ```
 `index.trim()` remove space, enter in string (/n)
 **Note:** `trim()` only remove space at the head and the end of a string not in the middle "  1   2   " output will be `"1  2"`
+
+===========================================================
 ## 7. `parse()`
+===========================================================
 ```rust
 let mut index = String::new();
 
@@ -98,7 +115,10 @@ let index: usize = index
     .expect("Index entered was not a number");
 ```
 `index.parse()` tranform string "3" into a number 3
+
+===========================================================
 ## 8. if Expression
+===========================================================
 ```rust
 fn main() {
     let number = 3;
@@ -112,5 +132,94 @@ fn main() {
 ```
 ^9e6c07
 **note:** the condition in this code **must** be a `bool`. If the condition isn't bool, we'll get an error [[C3. Common Programming Concepts#if Expressions|see error here]]
+# **Ternary conditional operator**
+```rust
+fn main() {
+    let condition = true;
+    let number = if condition { 5 } else { 6 };
 
+    println!("The value of number is: {number}");
+}
+```
 
+===========================================================
+## 9. Loop in Rust
+===========================================================
+^a3f890
+- Rust has three kinds of loops: `loop, while` , and `for` 
+1. `loop`
+```rust
+fn main() {
+    loop {
+        println!("again!");
+    }
+}
+```
+output 
+```bash
+$ cargo run
+   Compiling loops v0.1.0 (file:///projects/loops)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.08s
+     Running `target/debug/loops`
+again!
+again!
+again!
+again!
+^Cagain!
+```
+- `loop` execute a block of code over and over forever or until you [[English Vocabulary#^b01776|explicitly]] tell it to stop (pressing `ctrl` - `C`)
+- Similar to `while(true)` in `C++` and `Java`
+- `loop` can also be break by using `break` in code to tell the program where to stop exactly. 
+### `continue` 
+- This command will tell the program to skip all the code below and start next loop (next iteration).
+[[C3. Common Programming Concepts#Disambiguating with Loop Labels|Advanced feature]]
+2. `while`
+```rust
+fn main() {
+    let mut number = 3;
+
+    while number != 0 {
+        println!("{number}!");
+
+        number -= 1;
+    }
+
+    println!("LIFTOFF!!!");
+}
+```
+continue the while loop until the condition is false 
+3. `for`
+Use `for` loop to loop over the elements of a collection
+```rust
+fn main() {
+	let a = [10, 20, 30, 40, 50];
+	
+	for element in a {
+		println!("the value is: {element}");
+	}
+}
+```
+use `while` loop can also bring the same benefit but if you update the array and forgot to change the `index` in `while` loop the code would panic 
+- use `for` to decide how many times the loop needs to loop 
+increase order
+```rust
+fn main() {
+    for number in 1..4 {
+        println!("{number}!");
+    }
+    println!("LIFTOFF!!!");
+}
+```
+decrease order
+```rust
+fn main() {
+    for number in (1..4).rev() {
+        println!("{number}!");
+    }
+    println!("LIFTOFF!!!");
+}
+```
+
+===========================================================
+## 10. 
+===========================================================
