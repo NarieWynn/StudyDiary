@@ -9,10 +9,17 @@ Rust code uses `snake case` as the conventional style for function and variable 
 let mut string = String::new();
 ```
 - `String::new()` is a function that **allocates/creates** a dynamic string on the Heap.
+- `ptr`, `len = 0`, `capacity = 0` at start 0 byte on RAM only has data util `push_str()` 
 - This function is in the **prelude** (automatically imported).
 - `new()` is an **associated function** of the `String` type (like `static method` in Java/C++), called via `::` syntax.
 - Note: An associated function is implemented on a type itself (`String`, `Vec`), not on a specific instance.
 
+
+```rust
+let mut s = String::from("hello");
+```
+- Must has data at start 
+- also can appends a literal to a `String` by using `.push_str("");`
 ===========================================================
 # 2. Receiving Input
 ===========================================================
