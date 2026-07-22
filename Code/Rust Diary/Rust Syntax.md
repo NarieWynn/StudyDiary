@@ -42,10 +42,11 @@ std::io::stdin
 ===========================================================
 ## 3. References
 ===========================================================
+^05f918
 ^f04d47
+- **Concept:** A reference (`&`) is like a pointer gives a function the **address** of the data, that data is own by some other variable. Therefore, the computer doesn't need to copy the entire data into memory multiple times (saves RAM and improves performance).
+- Unlike a pointer, a reference is guaranteed to point to valid value of a particular type for the life of that reference.
 
-- **Concept:** A reference (`&`) gives a function the **address** of the data. Therefore, the computer doesn't need to copy the entire data into memory multiple times (saves RAM and improves performance).
-    
 - **Mutability Rules:** Like variables, references are **immutable by default**.
     
     - `&guess`: You give the address, but the computer **CANNOT** change the value inside that address (Read-only).
